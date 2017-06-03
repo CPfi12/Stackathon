@@ -9,7 +9,9 @@ const Students = require('../db/models/index').Students;
 api.get('/hello', (req, res) => res.send({hello: 'world'}))
 
 api.get('/campus',function(req,res,next){
-	School.findAll({}).then((schools)=>{res.send(schools)});
+	School.findAll({
+		include:[Students]
+	}).then((schools)=>{res.send(schools)});
 })
 
 api.get('/campus/:id',function(req,res,next){

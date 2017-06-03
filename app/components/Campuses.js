@@ -18,7 +18,7 @@ class Campuses extends React.Component {
     return (
       <div>
         <h1>Campuses!</h1>
-        <h4>{this.props.message}</h4>
+        <Link to='/addCampus'>Add a Campus</Link>
         {
           campuses && campuses.map((campus)=>{
             return(
@@ -41,7 +41,6 @@ class Campuses extends React.Component {
 /* -----------------    CONTAINER     ------------------ */
 
 const mapState = (state) => ({
-  message: 'Getting stuff from state',
   campuses: state.campuses
  });
 const mapDispatch = null;

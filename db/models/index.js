@@ -12,6 +12,7 @@ Students.belongsTo(School, {foreignKey:{
 	allowNull: false
 }, onDelete:'CASCADE'});
 
-//School.hasMany(Students)
+School.hasMany(Students);
+
 module.exports = {Students: Students,
 School: School}
