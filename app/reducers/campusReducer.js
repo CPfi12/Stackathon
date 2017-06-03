@@ -34,8 +34,8 @@ export const fetchCampuses = () => dispatch => {
        .then(res => dispatch(load(res.data)));
 };
 
-export const addCampus = () => dispatch => {
-	axios.post('/api/campus')
+export const addCampus = (campusInfo) => dispatch => {
+	axios.post('/api/campus',campusInfo)
 		.then(res => dispatch(add(res.data)));
 }
 

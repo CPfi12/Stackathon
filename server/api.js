@@ -24,7 +24,12 @@ api.get('/campus/:id',function(req,res,next){
 })
 
 api.post('/campus',function(req,res,next){
-	School.findOrCreate(req.body).spread((user,created)=>{res.send(user)})
+	//console.log('req.body in route',req.body);
+	School.findOrCreate({
+		where: req.body
+	}).spread((user,created)=>{
+		//console.log('user??',user);
+		res.send(user)})
 })
 
 api.put('/campus/:id',function(req,res,next){
