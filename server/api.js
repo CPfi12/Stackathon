@@ -48,7 +48,7 @@ api.delete('/campus/:id',function(req,res,next){
 })
 
 api.get('/students',function(req,res,next){
-	Students.findAll({}).then((studs)=>{res.send(studs)});
+	Students.findAll({include:[School]}).then((studs)=>{res.send(studs)});
 })
 
 api.get('/students/:id',function(req,res,next){
