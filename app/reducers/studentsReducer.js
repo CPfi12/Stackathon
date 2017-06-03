@@ -4,11 +4,13 @@ import axios from 'axios';
 
 const LOAD = 'LOAD_STUDENTS';
 const ADD = 'ADD_STUDENT';
+const DELETE = 'DELETE_STUDENT';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 const load  = students => ({ type: LOAD, students });
 const add = student => ({type: ADD, student});
+
 
 
 /* ------------       REDUCER     ------------------ */
@@ -37,6 +39,12 @@ export const fetchStudents = () => dispatch => {
 export const addStudent = (studentInfo) => dispatch => {
 	axios.post('/api/students',studentInfo)
 		.then(res => dispatch(add(res.data)));
+}
+
+export const deleteStudent = (studentId) => dispatch => {
+  axios.delete(`/api/students/${studentId}`).then((info)=>{
+    console.log(info);
+  })
 }
 
 

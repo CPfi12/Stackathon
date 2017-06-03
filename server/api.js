@@ -61,17 +61,31 @@ api.get('/students/:id',function(req,res,next){
 })
 
 api.post('/students',function(req,res,next){
-	Students.findOne({
+	console.log('in post?');
+	School.findOne({
 		where:{
-			name: req.body.name
+			name: req.body.schoolName
 		}
 	})
 	.then((school)=>{
-		return Student.findOrCreate({name: req.body.name,
+		console.log('school in post?',school);
+		return Students.findOrCreate({
+					where: {
+						name: req.body.name,
 						email: req.body.email,
-						schoolId: school})
+						schoolId: school.id
+					}
+				})})
+
+	.spread((user,created)=>{
+		return Students.findOne({
+			where:{id:user.id},
+			include:[School]
+		})
 	})
-	.spread((user,created)=>{res.send(user)})
+	.then((user)=>{
+		res.send(user);
+	})
 })
 
 api.put('/students/:id',function(req,res,next){
