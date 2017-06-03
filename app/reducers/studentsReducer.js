@@ -10,6 +10,7 @@ const DELETE = 'DELETE_STUDENT';
 
 const load  = students => ({ type: LOAD, students });
 const add = student => ({type: ADD, student});
+const delet = studentId => ({type: DELETE, studentId})
 
 
 
@@ -23,6 +24,9 @@ export default function reducer (students = [], action) {
     case ADD:
       newstudents.push(action.student);
       return newstudents;
+    case DELETE:
+      let still = newstudents.filter((student)=>student.id!==action.studentId);
+      return still;
     default:
       return students;
   }
@@ -43,7 +47,7 @@ export const addStudent = (studentInfo) => dispatch => {
 
 export const deleteStudent = (studentId) => dispatch => {
   axios.delete(`/api/students/${studentId}`).then((info)=>{
-    console.log(info);
+    dispatch(delet(studentId))
   })
 }
 

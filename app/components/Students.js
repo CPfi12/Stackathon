@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import {deleteStudent} from '../reducers/studentsReducer';
 
 
 /* -----------------    COMPONENT     ------------------ */
@@ -20,7 +21,7 @@ class Students extends React.Component {
           students && students.map((student)=>{
             return (<div key={student.id}>
                     <li>{student.name}    {student.school.name}</li>
-                    <button>X</button>
+                    <button onClick={(evt)=>{this.props.deleteStudent(student.id)}}>X</button>
                     </div>);
           })
         }
@@ -37,6 +38,6 @@ class Students extends React.Component {
 const mapState = (state) => ({
   students: state.students
  });
-const mapDispatch = null;
+const mapDispatch = {deleteStudent};
 
 export default connect(mapState, mapDispatch)(Students);

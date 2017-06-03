@@ -95,12 +95,12 @@ api.put('/students/:id',function(req,res,next){
 })
 
 api.delete('/students/:id',function(req,res,next){
-	Student.destroy({
+	Students.destroy({
 		where:{
 			id: req.params.id
 		}
 	})
-	.then((stud)=>{this.send('deleted!')});
+	.then((stud)=>{res.send('deleted!')});
 })
 
 

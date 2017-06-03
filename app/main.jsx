@@ -14,11 +14,11 @@ import Campus from './components/Campus';
 import AddCampus from './components/AddCampus';
 import AddStudent from './components/AddStudent';
 
-const onCampusEnter = ()=>{
+const onCampusEnter = (newProps)=>{
 	store.dispatch(fetchCampuses());
 }
 
-const onStudentsEnter = ()=>{
+const onStudentsEnter = (newProps)=>{
 	store.dispatch(fetchStudents());
 }
 
