@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import campuses from './campusReducer';
-import students from './studentsReducer';
+import temps from './temp'
 
 
-export default combineReducers({campuses,students});
+export default combineReducers({temps});

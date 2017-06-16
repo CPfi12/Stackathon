@@ -5,14 +5,16 @@
 	// This works if we all use the same Sequelize instance (instantiated in and exported from `/db/index.js`)
 	// This is an acceptable pattern but it does have limitations in that if you change the name of the model you will have to change every time it is requeired everywhere
 
-const Students = require('./Students');
-const School = require('./School');
+const Temperature = require('./Temperature');
+const Day = require('./Day');
+const User = require('./User');
+const Concerned = require('./Concerned');
+const Emergency = require('./Emerg');
 
-Students.belongsTo(School, {foreignKey:{
-	allowNull: false
-}, onDelete:'CASCADE'});
+Temperature.belongsTo(Day);
 
-School.hasMany(Students);
-
-module.exports = {Students: Students,
-School: School}
+module.exports = {Temperature: Temperature,
+Day: Day,
+User: User,
+Concerned: Concerned,
+Emergency: Emergency}
