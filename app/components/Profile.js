@@ -26,7 +26,7 @@ class Profile extends React.Component {
                 Name
               </label>
               <br/>
-              <input type="text" name="name" placeholder={this.props.name}/>
+              <input type="text" name="name" placeholder={this.props.name.name}/>
               <br/>
               <br/>
               <input type="submit" value="Submit" className="btn btn-success"/>
@@ -38,7 +38,7 @@ class Profile extends React.Component {
                 Contact Numbers for High Temperatures:
               </label>
               <br/>
-              <input type="text" name="high" />
+              <input type="text" name="high" placeholder={"+19149245510"}/>
               <br/>
               <br/>
               <input type="submit" value="Submit" className="btn btn-success"/>
@@ -50,7 +50,7 @@ class Profile extends React.Component {
                 Contact Number for Dangerous Temperatures:
               </label>
               <br/>
-              <input type="text" name="dangerous" />
+              <input type="text" name="dangerous" placeholder={"+19149245510"}/>
               <br/>
               <br/>
               <input type="submit" value="Submit" className="btn btn-success"/>

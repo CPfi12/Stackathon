@@ -16,12 +16,12 @@ class Root extends React.Component {
       temp: evt.target.temp.value
     }
     if(tempInfo.temp>=103 && tempInfo.temp<=104){
-        axios.get(`/api/cats/${this.props.name}/${tempInfo.temp}`)
+        axios.get(`/api/cats/${this.props.name.name}/${tempInfo.temp}`)
         alert('You have a high temperature. Temperatures above 104 are considered dangerous')
         
     }
     else if(tempInfo.temp>104){
-        axios.get(`/api/emergency/${this.props.name}/${tempInfo.temp}`)
+        axios.get(`/api/emergency/${this.props.name.name}/${tempInfo.temp}`)
         alert('You have a dangerously high temperature. Call 911');   
     }
     this.props.addTemp(tempInfo);
@@ -36,7 +36,7 @@ class Root extends React.Component {
                 Current Temperature
               </label>
               <br/>
-              <input type="text" name="temp" placeholder={this.props.name} />
+              <input type="text" name="temp" placeholder={this.props.name.name} />
               <br/>
               <br/>
               <input type="submit" value="Submit" className="btn btn-success" />

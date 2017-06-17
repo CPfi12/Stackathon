@@ -120,7 +120,7 @@ api.post('/',function(req,res,next){
 })
 
 api.get('/temps/:day',function(req,res,next){
-	Temperature.findAll({where:{dayId: req.params.day}})
+	Temperature.findAll({where:{dayId: req.params.day},order:'id ASC'})
 	.then((tempArr)=>{
 		if(!tempArr.length)
 			res.send('no!')
@@ -130,7 +130,7 @@ api.get('/temps/:day',function(req,res,next){
 })
 
 api.get('/allTemps',function(req,res,next){
-	Temperature.findAll({})
+	Temperature.findAll({order:'id ASC'})
 	.then((tempArr)=>{
 		if(!tempArr.length)
 			res.send('no!')

@@ -11,6 +11,7 @@ class AllDays extends React.Component {
     super(props);
   }
   render(){
+    var data = this.props.firstTemps;
     return (
       <div className="row">
       <div className="col-sm-4">
@@ -20,28 +21,12 @@ class AllDays extends React.Component {
           <LineChart
     axes
     dataPoints
-    xDomainRange={[0, 7]}
-    yDomainRange={[0, 70]}
+    xDomainRange={[18, 19]}
+    yDomainRange={[50, 120]}
     width={500}
     height={250}
     interpolate={'cardinal'}
-    data={[
-      [
-        { x: 1, y: 25 },
-        { x: 2.2, y: 10 },
-        { x: 3, y: 25 },
-        { x: 4.2, y: 10 },
-        { x: 5, y: 12 },
-        { x: 6, y: 25 }
-      ], [
-        { x: 1, y: 40 },
-        { x: 1.4, y: 30 },
-        { x: 1.5, y: 25 },
-        { x: 3, y: 60 },
-        { x: 4, y: 22 },
-        { x: 5, y: 9 }
-      ]
-    ]}
+    data={data}
   />
         </div>
         </div>
@@ -54,8 +39,27 @@ class AllDays extends React.Component {
 
 
 /* -----------------    CONTAINER     ------------------ */
+function convert(temps){
+  var allData = [];
+  for(var i=0;i<temps.length;i++){
+    if(!Array.isArray(allData[temps[i].dayId-1])){
+      console.log('making an array!');
+      allData[temps[i].dayId-1]=[]
+      console.log(allData)
+    }
+    var times = temps[i].time.split(':');
+    var x = (+times[0])+(+times[1]/60);
+    var y = temps[i].degrees;
+    allData[temps[i].dayId-1].push({x:x,y:y})
+    console.log('inloop',allData);
+  }
+  console.log('allData',allData);
+  return allData;
+}
+
 const mapState = (state) => ({
-  message: 'we have state!'
+  message: 'we have state!',
+  firstTemps: convert(state.temps)
  });
 const mapDispatch = null;
 
