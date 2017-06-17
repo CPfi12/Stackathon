@@ -11,14 +11,12 @@ import Profile from './components/Profile'
 import AllDays from './components/AllDays'
 var startTime = true;
 function NavEnt(){
-  if(startTime){
+  /*if(startTime){
     startTime = false;
-    setInterval(function() {
-      alert('aiyah!') 
-      soundAlarm() },10000);
-    //setInterval(function(){ alert("Take your temperature"); }, 30000);
-  }
-}
+    setInterval(function() { alert("Take your temperature"); }, 30000);
+  }*/
+ }
+
 
 ReactDOM.render(
   <Provider store={store}>

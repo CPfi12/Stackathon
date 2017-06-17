@@ -13,6 +13,7 @@ class Navbar extends Component {
       let cart = this.props.cart
       return (
       <div>
+      
       <nav className="navbar navbar-toggleable-xl navbar-light bg-faded">
         <div className="container-fluid">
           <ul className="nav navbar-nav">
