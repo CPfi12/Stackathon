@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import {addTemp} from '../reducers/temp'
+import {addName} from '../reducers/name.jsx'
 import axios from 'axios'
 import {LineChart} from 'react-easy-chart';
 
@@ -9,12 +10,18 @@ import {LineChart} from 'react-easy-chart';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(evt){
+    evt.preventDefault();
+    var name = {name:evt.target.name.value}
+    this.props.addName(name);
   }
   render(){
     return (
       <div className = 'row'>
         <div className="col-xs-4" style = {{'text-align': 'center'}}>
-          <form>
+          <form onSubmit={(evt)=>{this.handleSubmit(evt)}}>
               <label>
                 Name
               </label>
@@ -63,6 +70,6 @@ const mapState = (state) => ({
   message: 'we have state!',
   name: state.name
  });
-const mapDispatch = null;
+const mapDispatch = {addName};
 
 export default connect(mapState, mapDispatch)(Profile);
