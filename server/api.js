@@ -3,6 +3,7 @@ const api = require('express').Router()
 const db = require('../db')
 const Temperature = require('../db/models/index').Temperature;
 const Day = require('../db/models/index').Day;
+const User = require('../db/models/index').User;
 const Promise = require('bluebird');
 var accountSid = 'ACd7ec1f85d7b3df8f5e6f52829a33fc32';
 var authToken = 'd9873433bac7f536b0236fc06ee4e956';
@@ -42,6 +43,28 @@ api.get('/emergency/:name/:temp',function(req,res,next){
         res.send('complete')
 })
 
+api.get('/name',function(req,res,next){
+	User.findOne({})
+		.then((user)=>{
+			if(!user)
+				res.sendStatus(404)
+			else
+				res.send(user);
+		})
+})
+
+api.put('/name',function(req,res,next){
+	User.findOne({})
+		.then((user)=>{
+			return user.update(req.body)
+		})
+		.then((user)=>{
+			if(!user)
+				res.sendStatus(404)
+			else
+				res.send(user);
+		})
+})
 
 
 /*api.get('/:temp',function(req,res,next){

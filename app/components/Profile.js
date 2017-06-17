@@ -19,7 +19,7 @@ class Profile extends React.Component {
                 Name
               </label>
               <br/>
-              <input type="text" name="name" />
+              <input type="text" name="name" placeholder={this.props.name}/>
               <br/>
               <br/>
               <input type="submit" value="Submit" className="btn btn-success"/>
@@ -60,7 +60,8 @@ class Profile extends React.Component {
 
 /* -----------------    CONTAINER     ------------------ */
 const mapState = (state) => ({
-  message: 'we have state!'
+  message: 'we have state!',
+  name: state.name
  });
 const mapDispatch = null;
 

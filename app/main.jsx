@@ -5,6 +5,7 @@ import ReactDOM,{render} from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import store from './store'
+import {loadName} from './reducers/name.jsx'
 import Root from './components/Root'
 import Navbar from './components/Navbar'
 import Profile from './components/Profile'
@@ -16,14 +17,16 @@ function NavEnt(){
     setInterval(function() { alert("Take your temperature"); }, 30000);
   }*/
  }
-
+function RootEnt(){
+  store.dispatch(loadName())
+}
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
     	<Route path='/' component={Navbar} onEnter={NavEnt}>
-    		<Route path="/temps" component={Root}/>
-    		<Route path="/info" component={Profile}/>
+    		<Route path="/temps" component={Root} onEnter={RootEnt}/>
+    		<Route path="/info" component={Profile} onEnter={RootEnt}/>
         <Route path="/allDays" component={AllDays}/>
     		<IndexRedirect to='/temps'/>
     	</Route>
