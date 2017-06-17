@@ -29,7 +29,8 @@ class Root extends React.Component {
   }
   render(){
     return (
-      <div>
+      <div className="row">
+      <div className="col-xs-4" style = {{'text-align': 'center'}}>
           <form onSubmit={(evt)=>this.handleSubmit(evt)}>
               <label>
                 Current Temperature
@@ -37,9 +38,10 @@ class Root extends React.Component {
               <br/>
               <input type="text" name="temp" />
               <br/>
-              <input type="submit" value="Submit" />
+              <br/>
+              <input type="submit" value="Submit" className="btn btn-success" />
           </form>
-
+          </div>
         </div>
         
     );

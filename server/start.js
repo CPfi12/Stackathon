@@ -3,7 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {resolve} = require('path')
-
+const timer = require('./timer')
 const pkg = require('../package.json')
 
 const app = express()

@@ -24,6 +24,7 @@ api.get('/cats/:name/:temp',function(req,res,next){
             console.log(message.sid);
 
         });
+        res.send('complete');
 })
 
 api.get('/emergency/:name/:temp',function(req,res,next){
