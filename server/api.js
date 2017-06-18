@@ -47,16 +47,20 @@ api.get('/name',function(req,res,next){
 	User.findOne({})
 		.then((user)=>{
 			if(!user)
-				res.sendStatus(404)
+				res.send({name:''})
 			else
 				res.send(user);
 		})
 })
 
 api.put('/name',function(req,res,next){
+
 	User.findOne({})
 		.then((user)=>{
-			return user.update(req.body)
+			if(user)
+				return user.update(req.body)
+			else
+				return User.create(req.body)
 		})
 		.then((user)=>{
 			if(!user)

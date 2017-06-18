@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import store from './store'
 import {loadName} from './reducers/name.jsx'
-import {getTempsDay} from './reducers/temp.jsx'
+import {getTempsDay,getTemps} from './reducers/temp.jsx'
 import Root from './components/Root'
 import Navbar from './components/Navbar'
 import Profile from './components/Profile'
@@ -24,7 +24,7 @@ function RootEnt(){
 }
 
 function DayEnt(){
-  store.dispatch(getTempsDay(1));
+  store.dispatch(getTemps());
 }
 
 ReactDOM.render(

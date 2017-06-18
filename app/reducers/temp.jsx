@@ -41,7 +41,11 @@ export const getTempsDay = () => dispatch => {
 export const addTemp = (tempInfo) => dispatch => {
   console.log('in addTemp?')
   axios.post('/api/',tempInfo)
-    .then(res => dispatch(add(res.data)));
+    .then((thing)=>{
+      console.log('in addTEMP')
+      axios.get('/api/allTemps')
+       .then(res => dispatch(load(res.data)));
+    });
 }
 
 

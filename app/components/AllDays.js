@@ -18,10 +18,11 @@ class AllDays extends React.Component {
       </div>
       <div className="col-sm-4">
       <h4>All Days</h4>
-          <LineChart
+    <LineChart
+    axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    xDomainRange={[18, 19]}
+    xDomainRange={[8, 22]}
     yDomainRange={[50, 120]}
     width={500}
     height={250}
