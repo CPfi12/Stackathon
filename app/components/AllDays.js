@@ -40,6 +40,17 @@ class AllDays extends React.Component {
     height={250}
     data={this.props.forDays}
   />
+  <h4>Average Temperature by Time of Day</h4>
+  <LineChart
+    axisLabels={{x: 'Day', y: 'Temperature in F'}}
+    axes
+    dataPoints
+    xDomainRange={[8, 22]}
+    yDomainRange={[50, 120]}
+    width={500}
+    height={250}
+    data={this.props.forTimes}
+  />
         </div>
         </div>
         
@@ -70,6 +81,22 @@ function convert(temps){
   return allData;
 }
 
+function byTime(temps){
+  var obj ={};
+  var arr = [];
+  for(var i=0;i<temps.length;i++){
+    var times = temps[i].time.split(':');
+    var x = parseInt((+times[0])+(+times[1]/60));
+    var y = temps[i].degrees;
+    obj[x] = (obj[x]) ? obj[x] : [];
+    obj[x].push(y);
+  }
+  for(var key in obj){
+    var newVal = obj[key].reduce((total,val)=>{return parseFloat(total)+parseFloat(val)},0)/obj[key].length
+    arr.push({x:key,y:newVal});
+  }
+  return [arr];
+}
 function byDay(temps){
   var newData = convert(temps)
   var toRet = [];
@@ -88,7 +115,8 @@ function byDay(temps){
 const mapState = (state) => ({
   message: 'we have state!',
   firstTemps: convert(state.temps),
-  forDays: byDay(state.temps)
+  forDays: byDay(state.temps),
+  forTimes: byTime(state.temps)
  });
 const mapDispatch = null;
 

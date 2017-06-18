@@ -18,9 +18,9 @@ class Navbar extends Component {
         <div className="container-fluid">
           <ul className="nav navbar-nav">
             <li className="active"><Link to="/">Home</Link></li>
-            <li><Link to='/temps'>Add Temperature</Link></li>
-            <li><Link to='/info'>My Info</Link></li>
-            <li><Link to='/allDays'>All Days</Link></li>
+            <li style={{'color':'white'}}><Link to='/temps'>Add Temperature</Link></li>
+            <li style={{'color':'white'}}><Link to='/info'>My Info</Link></li>
+            <li style={{'color':'white'}}><Link to='/allDays'>My Data</Link></li>
           </ul>
         </div>
       </nav>
