@@ -47,6 +47,26 @@ class AllDays extends React.Component {
     interpolate={'cardinal'}
     data={data}
   />
+  {
+    data.map((day, index)=>{
+      return(
+        <div>
+        <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Temperature for day {index+1}</h4>
+        <LineChart
+    axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
+    axes
+    dataPoints
+    xDomainRange={[8, 24]}
+    yDomainRange={[50, 120]}
+    width={500}
+    height={250}
+    interpolate={'cardinal'}
+    data={[day]}
+  /> 
+  </div>
+        )
+    })
+  }
   <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Day</h4>
   <LineChart
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
