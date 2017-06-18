@@ -11,6 +11,7 @@ import Root from './components/Root'
 import Navbar from './components/Navbar'
 import Profile from './components/Profile'
 import AllDays from './components/AllDays'
+import MetaData from './components/MetaData'
 
 var startTime = true;
 function NavEnt(){
@@ -56,6 +57,7 @@ ReactDOM.render(
     		<Route path="/temps" component={Root} onEnter={RootEnt}/>
     		<Route path="/info" component={Profile} onEnter={RootEnt}/>
         <Route path="/allDays" component={AllDays} onEnter={DayEnt}/>
+        <Route path="/metadata" component={MetaData} onEnter={DayEnt}/>
     		<IndexRedirect to='/temps'/>
     	</Route>
   	</Router>

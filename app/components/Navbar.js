@@ -20,7 +20,8 @@ class Navbar extends Component {
             <li><Link to="/" style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Home</Link></li>
             <li ><Link to='/temps' style={{'color':'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Add Temperature</Link></li>
             <li ><Link to='/info' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>My Info</Link></li>
-            <li ><Link to='/allDays' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>My Data</Link></li>
+            <li ><Link to='/allDays' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Daily Data</Link></li>
+            <li ><Link to='/metadata' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Metadata</Link></li>
           </ul>
         </div>
       </nav>

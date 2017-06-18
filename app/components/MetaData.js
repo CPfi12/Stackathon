@@ -6,12 +6,11 @@ import axios from 'axios'
 import {LineChart} from 'react-easy-chart';
 
 /* -----------------    COMPONENT     ------------------ */
-class AllDays extends React.Component {
+class MetaData extends React.Component {
   constructor(props) {
     super(props);
   }
   render(){
-    var colors = ['firebrick', 'hotpink', 'tomato', 'darkorange', 'mediumorchid', 'rebeccapurple', 'dark magenta']
     var data = this.props.firstTemps;
     var times = this.props.forTimes[0];
     var high = [];
@@ -31,53 +30,32 @@ class AllDays extends React.Component {
       
       </div>
       <div className="col-sm-4">
-      {/*<Link to='/allDays'>All Days </Link>
-      <p>     </p>
-      <Link to='/byDay'>By Day </Link>
-      <p>     </p>
-      <Link to='/byHour'>By Hour</Link>*/}
-      <h4 style={{'font-family': 'Quicksand, sans-serif'}}>All Days</h4>
-    <LineChart
-    axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
+  <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Day</h4>
+  <LineChart
+    axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    lineColors={colors}
-    xDomainRange={[8, 24]}
+    xDomainRange={[0, 5]}
     yDomainRange={[50, 120]}
     width={500}
     height={250}
-    interpolate={'cardinal'}
-    data={data}
+    data={this.props.forDays}
   />
-  {
-    data.map((day,index)=>{
-      var a = colors[index];
-      var toSty = {color:a};
-      return(<p style={toSty}>Day{index+1}</p>)
-    })
-  }
-  {
-    data.map((day, index)=>{
-      return(
-        <div>
-        <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Temperature for day {index+1}</h4>
-        <LineChart
-    axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
+  <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Time of Day</h4>
+  <LineChart
+    axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    lineColors={[colors[index]]}
     xDomainRange={[8, 24]}
     yDomainRange={[50, 120]}
     width={500}
     height={250}
-    interpolate={'cardinal'}
-    data={[day]}
-  /> 
-  </div>
-        )
-    })
-  }
-  
+    data={this.props.forTimes}
+  />
+  <p style={{'font-family': 'Quicksand, sans-serif'}}> <strong>Times of Day when Temperature is High:</strong></p>
+  <p>{high.join(", ")}</p>
+  <p style={{'font-family': 'Quicksand, sans-serif'}}> <strong>Times of Day when Temperature is Dangerous:</strong></p>
+  <p>{dangerous.join(", ")}</p>
 
         </div>
         </div>
@@ -148,4 +126,4 @@ const mapState = (state) => ({
  });
 const mapDispatch = null;
 
-export default connect(mapState, mapDispatch)(AllDays);
+export default connect(mapState, mapDispatch)(MetaData);
