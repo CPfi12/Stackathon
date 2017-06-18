@@ -12,6 +12,18 @@ class AllDays extends React.Component {
   }
   render(){
     var data = this.props.firstTemps;
+    var times = this.props.forTimes[0];
+    var high = [];
+    var dangerous = [];
+    console.log(times);
+    for(var i=0;i<times.length;i++){
+      if(parseFloat(times[i].y)>=103&&times[i].y<=104)
+        high.push(times[i].x+':00')
+      else if(parseFloat(times[i].y)>104)
+        dangerous.push(times[i].x+':00');
+    }
+    console.log('H',high)
+    console.log('D',dangerous)
     return (
       <div className="row">
       <div className="col-sm-4">
@@ -22,7 +34,7 @@ class AllDays extends React.Component {
     axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    xDomainRange={[8, 22]}
+    xDomainRange={[8, 24]}
     yDomainRange={[50, 120]}
     width={500}
     height={250}
@@ -34,7 +46,7 @@ class AllDays extends React.Component {
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    xDomainRange={[0, 4]}
+    xDomainRange={[0, 5]}
     yDomainRange={[50, 120]}
     width={500}
     height={250}
@@ -45,12 +57,17 @@ class AllDays extends React.Component {
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    xDomainRange={[8, 22]}
+    xDomainRange={[8, 24]}
     yDomainRange={[50, 120]}
     width={500}
     height={250}
     data={this.props.forTimes}
   />
+  <p> <strong>Times of Day when Temperature is High:</strong></p>
+  <p>{high.join(", ")}</p>
+  <p> <strong>Times of Day when Temperature is Dangerous:</strong></p>
+  <p>{dangerous.join(", ")}</p>
+
         </div>
         </div>
         
@@ -86,7 +103,7 @@ function byTime(temps){
   var arr = [];
   for(var i=0;i<temps.length;i++){
     var times = temps[i].time.split(':');
-    var x = parseInt((+times[0])+(+times[1]/60));
+    var x = Math.round(parseFloat((+times[0])+(+times[1]/60)));
     var y = temps[i].degrees;
     obj[x] = (obj[x]) ? obj[x] : [];
     obj[x].push(y);

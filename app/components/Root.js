@@ -25,6 +25,7 @@ class Root extends React.Component {
         alert('You have a dangerously high temperature. Call 911');   
     }
     this.props.addTemp(tempInfo);
+    evt.target.temp.value="";
   }
   render(){
     console.log('ROOT PROPS',this.props)

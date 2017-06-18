@@ -16,6 +16,7 @@ class Profile extends React.Component {
     evt.preventDefault();
     var name = {name:evt.target.name.value}
     this.props.addName(name);
+    evt.target.name.value = ""
   }
   render(){
     return (
