@@ -14,11 +14,33 @@ import AllDays from './components/AllDays'
 
 var startTime = true;
 function NavEnt(){
-  /*if(startTime){
+  if(startTime){
     startTime = false;
-    setInterval(function() { alert("Take your temperature"); }, 30000);
-  }*/
+    setInterval(function() { 
+      //var snd = new Audio('/Users/clairejpfister/Music/iTunes/iTunes\ Media/Music/Unknown\ Artist/Unknown\ Album/foghorn-daniel_simon.mp3');
+      var play= true;
+      var snd = document.getElementById('audio');
+      console.log(snd);
+      snd.play();
+      snd.onended = function(){
+        alert('Take your temperature!')
+      }
+      /*snd.addEventListener("ended", function(){
+            //snd.currentTime = 0;
+            console.log('In HERE?')
+            if(play){
+              alert('ended');
+              play = false;
+            }
+            snd.off('ended');
+      });*/
+      console.log('banana!');
+
+     
+    }, 60000);
+    
  }
+}
 function RootEnt(){
   store.dispatch(loadName())
 }

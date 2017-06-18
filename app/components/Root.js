@@ -33,7 +33,7 @@ class Root extends React.Component {
       <div className="row">
       <div className="col-xs-4" style = {{'text-align': 'center'}}>
           <form onSubmit={(evt)=>this.handleSubmit(evt)}>
-              <label>
+              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
                 Current Temperature
               </label>
               <br/>

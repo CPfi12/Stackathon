@@ -27,9 +27,15 @@ class AllDays extends React.Component {
     return (
       <div className="row">
       <div className="col-sm-4">
+      
       </div>
       <div className="col-sm-4">
-      <h4>All Days</h4>
+      {/*<Link to='/allDays'>All Days </Link>
+      <p>     </p>
+      <Link to='/byDay'>By Day </Link>
+      <p>     </p>
+      <Link to='/byHour'>By Hour</Link>*/}
+      <h4 style={{'font-family': 'Quicksand, sans-serif'}}>All Days</h4>
     <LineChart
     axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
     axes
@@ -41,7 +47,7 @@ class AllDays extends React.Component {
     interpolate={'cardinal'}
     data={data}
   />
-  <h4>Average Temperature by Day</h4>
+  <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Day</h4>
   <LineChart
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
@@ -52,7 +58,7 @@ class AllDays extends React.Component {
     height={250}
     data={this.props.forDays}
   />
-  <h4>Average Temperature by Time of Day</h4>
+  <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Time of Day</h4>
   <LineChart
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes

@@ -23,7 +23,7 @@ class Profile extends React.Component {
       <div className = 'row'>
         <div className="col-xs-4" style = {{'text-align': 'center'}}>
           <form onSubmit={(evt)=>{this.handleSubmit(evt)}}>
-              <label>
+              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
                 Name
               </label>
               <br/>
@@ -35,7 +35,7 @@ class Profile extends React.Component {
           </div>
           <div className="col-xs-4" style = {{'text-align': 'center'}}>
           <form>
-              <label>
+              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
                 Contact Numbers for High Temperatures:
               </label>
               <br/>
@@ -47,7 +47,7 @@ class Profile extends React.Component {
           </div>
           <div className="col-xs-4" style = {{'text-align': 'center'}}>
           <form>
-              <label>
+              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
                 Contact Number for Dangerous Temperatures:
               </label>
               <br/>
