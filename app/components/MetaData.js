@@ -29,32 +29,34 @@ class MetaData extends React.Component {
       <div className="col-sm-4">
       
       </div>
-      <div className="col-sm-4">
-  <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Day</h4>
+      <div className="col-sm-6">
+  <h4 style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'25px'})}>Average Temperature by Day</h4>
   <LineChart
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
     dataPoints
-    xDomainRange={[0, 5]}
-    yDomainRange={[50, 120]}
+    lineColors={['midnightblue']}
+    xDomainRange={[0.5, 5.5]}
+    yDomainRange={[95, 105]}
     width={500}
     height={250}
     data={this.props.forDays}
   />
-  <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Average Temperature by Time of Day</h4>
+  <h4 style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'25px'})}>Average Temperature by Time of Day</h4>
   <LineChart
     axisLabels={{x: 'Day', y: 'Temperature in F'}}
     axes
     dataPoints
+    lineColors={['midnightblue']}
     xDomainRange={[8, 24]}
-    yDomainRange={[50, 120]}
+    yDomainRange={[95, 110]}
     width={500}
     height={250}
     data={this.props.forTimes}
   />
-  <p style={{'font-family': 'Quicksand, sans-serif'}}> <strong>Times of Day when Temperature is High:</strong></p>
+  <p style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'15px'})}> <strong>Times of Day when Temperature is High:</strong></p>
   <p>{high.join(", ")}</p>
-  <p style={{'font-family': 'Quicksand, sans-serif'}}> <strong>Times of Day when Temperature is Dangerous:</strong></p>
+  <p style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'15px'})}> <strong>Times of Day when Temperature is Dangerous:</strong></p>
   <p>{dangerous.join(", ")}</p>
 
         </div>

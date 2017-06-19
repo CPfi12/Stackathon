@@ -22,8 +22,10 @@ class Profile extends React.Component {
     return (
       <div className = 'row'>
         <div className="col-xs-4" style = {{'text-align': 'center'}}>
+          <br/>
+          <br/>
           <form onSubmit={(evt)=>{this.handleSubmit(evt)}}>
-              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
+              <label style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'15px'})}>
                 Name
               </label>
               <br/>
@@ -34,8 +36,10 @@ class Profile extends React.Component {
           </form>
           </div>
           <div className="col-xs-4" style = {{'text-align': 'center'}}>
+          <br/>
+          <br/>
           <form>
-              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
+              <label style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'15px'})}>
                 Contact Numbers for High Temperatures:
               </label>
               <br/>
@@ -46,8 +50,10 @@ class Profile extends React.Component {
           </form>
           </div>
           <div className="col-xs-4" style = {{'text-align': 'center'}}>
+          <br/>
+          <br/>
           <form>
-              <label style={{color: 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>
+              <label style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'15px'})}>
                 Contact Number for Dangerous Temperatures:
               </label>
               <br/>

@@ -17,11 +17,11 @@ class Navbar extends Component {
       <nav className="navbar navbar-toggleable-xl navbar-light bg-faded">
         <div className="container-fluid">
           <ul className="nav navbar-nav">
-            <li><Link to="/" style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Home</Link></li>
-            <li ><Link to='/temps' style={{'color':'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Add Temperature</Link></li>
-            <li ><Link to='/info' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>My Info</Link></li>
-            <li ><Link to='/allDays' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Daily Data</Link></li>
-            <li ><Link to='/metadata' style={{'color': 'white'}} style={{'font-family': 'Quicksand, sans-serif'}}>Metadata</Link></li>
+            <li><Link to="/" style={Object.assign({},{'color': 'midnightblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'35px'})}>TempTracker</Link></li>
+            <li ><Link to='/temps' style={Object.assign({},{'color': 'midnightblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'17px'})}>Add Temperature</Link></li>
+            <li ><Link to='/info' style={Object.assign({},{'color': 'midnightblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'17px'})}>My Info</Link></li>
+            <li ><Link to='/allDays' style={Object.assign({},{'color': 'midnightblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'17px'})}>Daily Data</Link></li>
+            <li ><Link to='/metadata' style={Object.assign({},{'color': 'midnightblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'17px'})}>Metadata</Link></li>
           </ul>
         </div>
       </nav>

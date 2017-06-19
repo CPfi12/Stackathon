@@ -33,7 +33,7 @@ class AllDays extends React.Component {
       <div style={{'border-color':'blue'}}>
       <br/>
       <br/>
-      <h6 style={{'font-family': 'Quicksand, sans-serif'}}>Key</h6>
+      <h5 style={{'font-family': 'Quicksand, sans-serif'}}>Key</h5>
        {
     data.map((day,index)=>{
       var a = colors[index];
@@ -48,17 +48,16 @@ class AllDays extends React.Component {
       <Link to='/byDay'>By Day </Link>
       <p>     </p>
       <Link to='/byHour'>By Hour</Link>*/}
-      <h4 style={{'font-family': 'Quicksand, sans-serif'}}>All Days</h4>
+      <h4 style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'25px'})}>All Days</h4>
     <LineChart
     axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
     axes
-    dataPoints
+    interpolate={'cardinal'}
     lineColors={colors}
-    xDomainRange={[8, 24]}
-    yDomainRange={[50, 120]}
+    xDomainRange={[9, 24]}
+    yDomainRange={[90, 115]}
     width={520}
     height={270}
-    interpolate={'cardinal'}
     data={data}
   />
   
@@ -66,17 +65,16 @@ class AllDays extends React.Component {
     data.map((day, index)=>{
       return(
         <div>
-        <h4 style={{'font-family': 'Quicksand, sans-serif'}}>Temperature for day {index+1}</h4>
+        <h4 style={Object.assign({},{'color': 'steelblue'},{'font-family': 'Quicksand, sans-serif'},{'font-size':'25px'})}>Temperature for Day {index+1}</h4>
         <LineChart
     axisLabels={{x: 'Time of Day', y: 'Temperature in F'}}
     axes
     dataPoints
     lineColors={[colors[index]]}
-    xDomainRange={[8, 24]}
-    yDomainRange={[50, 120]}
+    xDomainRange={[9, 24]}
+    yDomainRange={[90, 115]}
     width={500}
     height={250}
-    interpolate={'cardinal'}
     data={[day]}
   /> 
   </div>
