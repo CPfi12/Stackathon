@@ -27,8 +27,20 @@ class AllDays extends React.Component {
     console.log('D',dangerous)
     return (
       <div className="row">
-      <div className="col-sm-4">
-      
+      <div className="col-sm-3">
+      </div>
+      <div className="col-sm-1">
+      <div style={{'border-color':'blue'}}>
+      <br/>
+      <br/>
+      <h6 style={{'font-family': 'Quicksand, sans-serif'}}>Key</h6>
+       {
+    data.map((day,index)=>{
+      var a = colors[index];
+      var toSty = {color:a};
+      return(<h6 style={toSty}>Day{index+1}</h6>)
+    })
+  } </div>
       </div>
       <div className="col-sm-4">
       {/*<Link to='/allDays'>All Days </Link>
@@ -44,18 +56,12 @@ class AllDays extends React.Component {
     lineColors={colors}
     xDomainRange={[8, 24]}
     yDomainRange={[50, 120]}
-    width={500}
-    height={250}
+    width={520}
+    height={270}
     interpolate={'cardinal'}
     data={data}
   />
-  {
-    data.map((day,index)=>{
-      var a = colors[index];
-      var toSty = {color:a};
-      return(<p style={toSty}>Day{index+1}</p>)
-    })
-  }
+  
   {
     data.map((day, index)=>{
       return(

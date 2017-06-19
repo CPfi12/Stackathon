@@ -40,7 +40,7 @@ class Root extends React.Component {
               <input type="text" name="temp" placeholder={this.props.name.name} />
               <br/>
               <br/>
-              <input type="submit" value="Submit" className="btn btn-success" />
+              <input type="submit" value="Submit" className="btn btn-primary" />
           </form>
           </div>
         </div>

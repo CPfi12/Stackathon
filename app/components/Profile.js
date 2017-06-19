@@ -30,7 +30,7 @@ class Profile extends React.Component {
               <input type="text" name="name" placeholder={this.props.name.name}/>
               <br/>
               <br/>
-              <input type="submit" value="Submit" className="btn btn-success"/>
+              <input type="submit" value="Submit" className="btn btn-primary"/>
           </form>
           </div>
           <div className="col-xs-4" style = {{'text-align': 'center'}}>
@@ -42,7 +42,7 @@ class Profile extends React.Component {
               <input type="text" name="high" placeholder={"+19149245510"}/>
               <br/>
               <br/>
-              <input type="submit" value="Submit" className="btn btn-success"/>
+              <input type="submit" value="Submit" className="btn btn-primary"/>
           </form>
           </div>
           <div className="col-xs-4" style = {{'text-align': 'center'}}>
@@ -54,7 +54,7 @@ class Profile extends React.Component {
               <input type="text" name="dangerous" placeholder={"+19149245510"}/>
               <br/>
               <br/>
-              <input type="submit" value="Submit" className="btn btn-success"/>
+              <input type="submit" value="Submit" className="btn btn-primary"/>
           </form>
           </div>
         </div>
